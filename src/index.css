@@ -4,14 +4,15 @@
 
 @theme {
   /* ================= FONT ================= */
-  --font-script: "Alex Brush", cursive; /* Judul aksen: "Setia" */
-  --font-heading: "Playfair Display", serif; /* Subjudul / Tagline */
-  --font-body: "Poppins", sans-serif; /* Deskripsi & info */
+  --font-script: "Alex Brush", cursive;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Poppins", sans-serif;
 
   /* ================= COLOR ================= */
-  --color-primary-01: #e0a100; /* Gold / Highlight */
-  --color-primary-02: #0f0f0f; /* Black / Background */
-  --color-primary-03: #f5f3ee; /* Warm White / Text */
+  --color-primary-01: #fe81d4; /* Pink Utama */
+  --color-primary-02: #faacbf; /* Pink Muda */
+  --color-primary-03: #ffeabb; /* Cream Gold */
+  --color-dark: #2d1b24; /* Deep Maroon/Brown untuk teks kontras */
 }
 
 @layer utilities {
@@ -19,62 +20,37 @@
   .font-script {
     font-family: var(--font-script);
   }
-
   .font-heading {
     font-family: var(--font-heading);
   }
-
   .font-body {
     font-family: var(--font-body);
   }
 
-  /* ================= COLOR UTILITIES ================= */
-  .text-primary {
-    color: var(--color-primary-01);
-  }
-  .text-secondary {
-    color: var(--color-primary-02);
-  }
-  .text-third {
-    color: var(--color-primary-03);
-  }
-
-  .bg-gold {
+  .bg-primary-pink {
     background-color: var(--color-primary-01);
   }
-
-  .bg-dark {
+  .bg-secondary-pink {
     background-color: var(--color-primary-02);
   }
-
-  .text-light {
-    color: var(--color-primary-03);
+  .bg-accent-gold {
+    background-color: var(--color-primary-03);
   }
 
-  /* ================= BACKGROUND IMAGE ================= */
+  .text-primary-pink {
+    color: var(--color-primary-01);
+  }
+  .text-accent-gold {
+    color: var(--color-primary-03);
+  }
+  .text-dark-warm {
+    color: var(--color-dark);
+  }
+
   .bg-utama {
     background-image: url("../public/general/bg1.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-  }
-  .bg-dua {
-    background-image: url("../public/general/bg-utama.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .bg-primary {
-    background-image: url("../public/general/bg-utama.png");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-  }
-  .bg-tiga {
-    background-image: url("../public/general/bg-3.png");
-    background-size: cover;
-    background-position: top;
     background-repeat: no-repeat;
   }
 }

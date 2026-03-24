@@ -1,16 +1,8 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PackageSelection from "./components/home/package/Package";
-import OrderForm from "./components/formulir/Formulir";
-import Layout from "./components/home/layouts/Layouts";
-import Hero from "./components/home/hero-section/Hero";
-import About from "./components/home/about/About";
-import Tujuan from "./components/home/tujuan/Tujuan";
-import Gallery from "./components/home/gallery/Gallery";
-import WhatsappFloating from "./components/partials/WhatsappFloating";
 import { useEffect } from "react";
-import HeroEvent from "./components/home/hero-section/HeroEvent";
 import Lenis from "@studio-freight/lenis";
+import Home from "./components/home/home";
+import Fam100 from "./components/fam100/fam100";
 
 function App() {
   useEffect(() => {
@@ -33,26 +25,10 @@ function App() {
     };
   }, []);
   return (
-    <Router basename="/ticketing">
+    <Router basename="/bani-rasyad">
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Layout>
-                <Hero />
-                <About />
-                <Tujuan />
-                <PackageSelection />
-                <Gallery />
-                <HeroEvent />
-              </Layout>
-              <WhatsappFloating />
-            </>
-          }
-        />
-
-        <Route path="/order" element={<OrderForm />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/game" element={<Fam100 />} />
       </Routes>
     </Router>
   );

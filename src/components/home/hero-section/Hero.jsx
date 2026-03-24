@@ -1,8 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { smoothScrollTo } from "../../../utils/smoothScroll";
-// Pastikan path import gambarmu benar
-import speaker1 from "../../../../public/general/speaker1.webp";
+import logoBani from "../../../../public/general/logo1.webp";
+import { Trophy, Sparkles, Calendar } from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -25,88 +24,127 @@ const item = {
 };
 
 export default function Hero() {
+  const SCROLL_DURATION = 1500;
+  const NAVBAR_OFFSET = 80;
+
   return (
-    <section className="relative overflow-hidden" id="home">
-      <motion.div variants={container} initial="hidden" animate="show" className="max-w-7xl mx-auto md:px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4">
-        {/* LEFT CONTENT */}
-        <div className="space-y-5">
+    <section className="relative overflow-hidden bg-[#FFF5F7] py-10 lg:py-0 lg:min-h-[90vh] flex items-center" id="home">
+      {/* Dekorasi Background Bulat Soft */}
+      <div className="absolute top-[-5%] right-[-5%] w-72 h-72 md:w-96 md:h-96 bg-secondary-pink/20 blur-[80px] md:blur-[100px] rounded-full -z-10" />
+      <div className="absolute bottom-[-5%] left-[-5%] w-64 h-64 md:w-80 md:h-80 bg-accent-gold/30 blur-[80px] md:blur-[100px] rounded-full -z-10" />
+
+      <motion.div variants={container} initial="hidden" animate="show" className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        {/* RIGHT IMAGE (Sekarang Muncul di Atas saat Mobile) */}
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.2 }} className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+          <div className="relative w-full max-w-[280px] sm:max-w-[350px] lg:max-w-[450px] group">
+            {/* Main Logo Container with Glassmorphism */}
+            <div className="relative z-10 p-8 sm:p-12 aspect-square rounded-[3rem] lg:rounded-[4rem] bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_20px_40px_-15px_rgba(254,129,212,0.2)] flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+              {/* Hover Effect Light */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary-pink/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <motion.img src={logoBani} alt="Logo Bani Rasyad" className="w-full h-auto object-contain relative z-20" animate={{ y: [0, -12, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
+            </div>
+
+            {/* Decorative Floating Elements (Hanya muncul di layar agak besar) */}
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -top-6 -right-6 w-20 h-20 border border-primary-pink/20 rounded-full border-dashed hidden sm:block" />
+
+            {/* Floating Badge - Top Team */}
+            <motion.div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-white p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-xl border border-primary-pink/10 z-30 flex items-center gap-3 sm:gap-4 scale-90 sm:scale-100">
+              <div className="p-2 sm:p-3 bg-accent-gold/20 rounded-xl text-primary-pink">
+                <Trophy size={20} className="sm:w-6 sm:h-6" />
+              </div>
+              <div>
+                <p className="text-[8px] sm:text-[10px] font-bold opacity-50 uppercase tracking-tighter sm:tracking-normal">Top Team</p>
+                <p className="font-heading font-bold text-dark-warm text-xs sm:text-base whitespace-nowrap">Kelompok 3 & 4</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* LEFT CONTENT (Muncul di Bawah Image saat Mobile) */}
+        <div className="order-2 lg:order-1 space-y-6 lg:space-y-8 text-center lg:text-left">
           {/* Badge */}
-          <motion.div variants={item} className="flex justify-start">
-            <h1 className="inline-flex gap-2 px-4 py-1 rounded-full border border-black text-secondary text-sm font-body">✦ Setia Event Organizer</h1>
+          <motion.div variants={item} className="flex justify-center lg:justify-start">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-pink/30 bg-white/50 text-primary-pink text-xs font-bold tracking-widest font-body shadow-sm">
+              <Sparkles size={14} /> KUMPUL KELUARGA 2026
+            </span>
           </motion.div>
 
           {/* Heading */}
-          <motion.h1 variants={item} className="font-heading font-bold text-start text-4xl sm:text-5xl lg:text-6xl leading-tight text-secondary">
-            Setia Bersamamu <br />
-            <span className="text-primary">Merawat Cinta</span> <br />
-            <span>Sampai</span> <span className="text-primary">Surga</span>
-          </motion.h1>
+          <motion.div variants={item} className="space-y-2">
+            <h1 className="font-heading font-bold text-4xl sm:text-6xl lg:text-7xl leading-[1.1] text-dark-warm">
+              Bani Rasyad <br />
+              <span className="text-primary-pink font-script text-5xl sm:text-7xl lg:text-8xl block mt-2 normal-case">Merajut Kasih</span>
+              <span className="text-[10px] sm:text-sm md:text-xl font-body font-light tracking-[0.2em] block mt-2 opacity-70 uppercase">Dalam Kehangatan Keluarga</span>
+            </h1>
+          </motion.div>
 
           {/* Description */}
-          <motion.p variants={item} className="font-body text-start text-base sm:text-lg text-secondary max-w-xl">
-            Pernikahan adalah <strong>ibadah seumur hidup</strong>. Namun seiring waktu, cinta bisa melemah oleh rutinitas, tuntutan, dan luka yang tak tersampaikan.
-            <br />
-            <br />
-            <strong>Setia Bersamamu</strong> hadir sebagai <em>couple time</em> penuh makna, untuk menguatkan kembali ikatan, menata arah pernikahan, dan menghadirkan kembali{" "}
-            <span className="text-primary font-medium">sakinah dalam rumah tangga</span>.
+          <motion.p variants={item} className="font-body text-sm sm:text-lg text-dark-warm/80 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Selamat datang di portal resmi keluarga <strong>Bani Rasyad</strong>. Tempat di mana kenangan lama dirayakan dan tawa baru diciptakan melalui keseruan lomba dan kebersamaan.
           </motion.p>
 
-          {/* CTA SECTION - DIMODIFIKASI DI SINI */}
-          <motion.div
-            variants={item}
-            // 1. flex-col (Mobile: Kolom), sm:flex-row (Tablet ke atas: Baris)
-            // 2. gap-4 (Mobile: Jarak rapat), sm:gap-6 (PC: Jarak renggang)
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 w-full sm:w-auto"
-          >
+          {/* CTA SECTION */}
+          <motion.div variants={item} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-6">
+            {/* Button Primary: Agenda Lomba - Dipertegas Warnanya */}
             <motion.a
-              href="https://wa.me/6285320477752?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20tentang%20event%20Setia%20Bersamamu"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              // 3. w-full (Mobile: Full width), sm:w-auto (PC: Auto width)
-              // 4. flex justify-center (Agar teks di tengah saat full width)
-              className="
-                font-body font-semibold
-                px-6 py-3 rounded-full
-                bg-gradient-to-r
-                from-[var(--color-primary-01)]
-                to-[var(--color-primary-02)]
-                text-third
-                transition-all duration-300
-                w-full sm:w-auto flex justify-center text-center
-              "
-            >
-              Start Consultation
-            </motion.a>
-
-            <motion.a
+              href="#agenda"
               onClick={(e) => {
                 e.preventDefault();
-                smoothScrollTo("explore", 1500, 80); // id, speed, navbar height
+                smoothScrollTo("agenda", SCROLL_DURATION, NAVBAR_OFFSET);
               }}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              // Tambahkan class yang sama: w-full sm:w-auto flex justify-center
+              whileHover={{
+                scale: 1.03,
+                y: -2,
+                boxShadow: "0 15px 30px -5px rgba(254, 129, 212, 0.4)",
+              }}
+              whileTap={{ scale: 0.97 }}
               className="
-                bg-gradient-to-r text-secondary rounded-full font-body 
-                from-gray-200 via-gray-400 to-gray-500 font-medium 
-                text-sm px-6 py-3 shadow-sm
-                w-full sm:w-auto flex justify-center text-center
-              "
+      group relative overflow-hidden
+      font-body font-bold text-base
+      px-10 py-4 rounded-2xl
+      /* Gradien dipertegas agar teks putih terlihat jelas */
+      bg-gradient-to-r from-[#FF69B4] to-[#FE81D4] 
+      text-white text-center 
+      w-full sm:w-auto flex items-center justify-center gap-3
+      shadow-lg shadow-primary-pink/20
+      transition-all duration-300
+    "
             >
-              Explore more
+              {/* Efek Shine tetap ada untuk kesan mewah */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+
+              <Calendar size={20} className="relative z-10" />
+              <span className="relative z-10">Lihat Agenda Lomba</span>
+            </motion.a>
+
+            {/* Button Secondary: Daftar Pemenang - Border & Text lebih kontras */}
+            <motion.a
+              href="#winners"
+              onClick={(e) => {
+                e.preventDefault();
+                smoothScrollTo("winners", SCROLL_DURATION, NAVBAR_OFFSET);
+              }}
+              whileHover={{
+                y: -4,
+                backgroundColor: "rgba(255, 255, 255, 1)",
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="
+      cursor-pointer
+      bg-white text-[#B48A01] rounded-2xl font-body 
+      /* Border dipertegas warnanya */
+      border-2 border-[#D4AF37] font-bold 
+      text-base px-10 py-4 shadow-sm 
+      w-full sm:w-auto flex items-center justify-center gap-2
+      transition-all duration-300
+    "
+            >
+              <Trophy size={18} className="text-[#D4AF37]" />
+              <span>Daftar Pemenang</span>
             </motion.a>
           </motion.div>
         </div>
-
-        {/* RIGHT IMAGE */}
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }} className="relative flex justify-center lg:justify-end">
-          <div className="relative">
-            {/* Blur Background */}
-            <motion.div animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0 rounded-3xl bg-gold opacity-60 blur-md -z-10" />
-
-            <img src={speaker1} alt="Family Speaker" className="w-full max-w-md lg:max-w-lg object-contain rounded-2xl relative z-10" />
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );
