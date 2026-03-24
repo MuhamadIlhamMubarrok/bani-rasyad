@@ -57,31 +57,31 @@ export const agendaLomba = [
 export const imagesGallery = [
   {
     id: 1,
-    url: "./bani-rasyad/gallery/babacakan1.jpeg", // Hapus ../../../public
+    url: "https://muhamadilhammubarrok.github.io/bani-rasyad/gallery/babacakan1.jpeg", // Hapus ../../../public
     alt: "Momen 1",
     category: "Cimanuk",
   },
   {
     id: 2,
-    url: "./bani-rasyad/gallery/babacakan2.jpeg",
+    url: "https://muhamadilhammubarrok.github.io//bani-rasyad/gallery/babacakan2.jpeg",
     alt: "Momen 2",
     category: "Cimanuk",
   },
   {
     id: 3,
-    url: "./bani-rasyad/gallery/babacakan3.jpeg",
+    url: "https://muhamadilhammubarrok.github.io//bani-rasyad/gallery/babacakan3.jpeg",
     alt: "Momen 3",
     category: "Cimanuk",
   },
   {
     id: 4,
-    url: "./bani-rasyad/gallery/babacakan4.jpeg",
+    url: "https://muhamadilhammubarrok.github.io//bani-rasyad/gallery/babacakan4.jpeg",
     alt: "Momen 4",
     category: "Cimanuk",
   },
   {
     id: 6,
-    url: "./bani-rasyad/gallery/cibatu1.jpeg",
+    url: "https://muhamadilhammubarrok.github.io//bani-rasyad/gallery/cibatu1.jpeg",
     alt: "Momen 6",
     category: "Cibatu",
   },

@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist -r https://github.com/MuhamadIlhamMubarrok/ticketing.git"
+    "deploy": "gh-pages -d dist -r https://github.com/MuhamadIlhamMubarrok/bani-rasyad.git"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
